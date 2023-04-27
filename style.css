@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Poppins:wght@400;500;600&display=swap');
+:root {
+    --title-color: #333;
+    --body-color: #696969;
+    --background-color: #eee;
+    --foreground-color: #fff;
+    --blend-mode: normal;
+}
+
+.dark {
+    --title-color: #fff;
+    --body-color: #afafaf;
+    --background-color: #181621;
+    --blend-mode: lighten;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    color: var(--body-color);
+    background-color: var(--background-color);
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.switch {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    z-index: 9999;
+    width: 4rem;
+    height: 4rem;
+    border: 3px solid var(--body-color);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.switch i {
+    font-size: 2rem;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 120rem;
+    padding-inline: 1.5rem;
+    margin-inline: auto;
+}
+
+.card {
+    display: flex;
+    background-color: var(--background-color);
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    transition: background-color 0.25;
+}
+
+.card_image {
+    flex: 1;
+}
+
+.card_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: var(--blend-mode);
+}
+
+.card_body {
+    flex: 1;
+    padding: 5rem;
+}
+
+.card_title {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    color: var(--title-color);
+}
+
+.card_subtitle {
+    font-size: 1.4rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+}
+
+.card_body p:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.card_button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--body-color);
+    padding: 1rem 2.5rem;
+    margin-top: 2.5rem;
+    border: 2px solid var(--body-color);
+}
+
+.card_button span {
+    display: inline-block;
+    transition: transform 0.25s;
+}
+
+.card_button:hover span {
+    transform: translateX(0.75rem);
+}
+
+@media screen and (max-width:56.25rem) {
+    .card {
+        flex-direction: column;
+    }
+    .card_body {
+        padding: 2.5rem;
+    }
+    .card_button {
+        margin-top: 1.5rem;
+    }
+}
